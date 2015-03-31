@@ -2,7 +2,6 @@
 #
 # check-beanstalk-watchers
 #
-#
 # DESCRIPTION:
 #   #YELLOW
 #
@@ -27,10 +26,12 @@
 #   for details.
 #
 
-require 'rubygems' if RUBY_VERSION < '1.9.0'
 require 'sensu-plugin/check/cli'
 require 'beanstalk-client'
 
+#
+# Check Beanstalk Watchers
+#
 class CheckBeanstalkWatchers < Sensu::Plugin::Check::CLI
   option :host,
          short: '-H HOST',
@@ -49,7 +50,7 @@ class CheckBeanstalkWatchers < Sensu::Plugin::Check::CLI
          proc: proc(&:to_i),
          default: false
 
-  def run
+  def run # rubocop:disable all
     unknown 'Tube was not set' unless config[:tube]
     begin
       beanstalk = Beanstalk::Connection.new(

@@ -4,7 +4,7 @@
 #
 # DESCRIPTION:
 #  Check beanstalkd queues
-
+#
 # OUTPUT:
 #   plain-text
 #
@@ -27,12 +27,13 @@
 #   for details.
 #
 
-require 'rubygems' if RUBY_VERSION < '1.9.0'
 require 'sensu-plugin/check/cli'
 require 'json'
 require 'beaneater'
 
+#
 # Checks the queue levels
+#
 class BeanstalkdQueuesStatus < Sensu::Plugin::Check::CLI
   check_name 'beanstalkd queues check'
 
@@ -84,7 +85,7 @@ class BeanstalkdQueuesStatus < Sensu::Plugin::Check::CLI
     conn
   end
 
-  def run
+  def run # rubocop:disable all
     stats = acquire_beanstalkd_connection.tubes["#{config[:tube]}"].stats
     message 'All queues are healthy'
 
@@ -103,7 +104,7 @@ class BeanstalkdQueuesStatus < Sensu::Plugin::Check::CLI
     ok
   end
 
-  def check_queues(stats)
+  def check_queues(stats) # rubocop:disable all
     msg = []
     crits = {}
     warns = {}

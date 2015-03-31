@@ -2,7 +2,6 @@
 #
 # check-beanstalk-jobs
 #
-#
 # DESCRIPTION:
 #   #YELLOW
 #
@@ -27,10 +26,12 @@
 #   for details.
 #
 
-require 'rubygems' if RUBY_VERSION < '1.9.0'
 require 'sensu-plugin/check/cli'
 require 'beanstalk-client'
 
+#
+# Check Beanstalk Workers
+#
 class CheckBeanstalkWorkers < Sensu::Plugin::Check::CLI
   option :host,
          short: '-H HOST',
@@ -57,7 +58,7 @@ class CheckBeanstalkWorkers < Sensu::Plugin::Check::CLI
          proc: proc(&:to_i),
          default: 0
 
-  def run
+  def run # rubocop:disable all
     begin
       beanstalk = Beanstalk::Connection.new(
         "#{config[:host]}:#{config[:port]}"
