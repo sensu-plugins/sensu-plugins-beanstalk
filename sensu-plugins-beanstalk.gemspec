@@ -12,27 +12,31 @@ end
 pvt_key = '~/.ssh/gem-private_key.pem'
 
 Gem::Specification.new do |s|
-  s.name                   = 'sensu-plugins-beanstalk'
-  s.version                = SensuPluginsBeanstalk::VERSION
-  s.authors                = ['Yieldbot, Inc. and contributors']
-  s.email                  = '<sensu-users@googlegroups.com>'
-  s.homepage               = 'https://github.com/sensu-plugins/sensu-plugins-beanstalk'
-  s.summary                = ''
-  s.description            = ''
-  s.license                = 'MIT'
-  s.date                   = Date.today.to_s
-  s.files                  = Dir.glob('{bin,lib}/**/*') + %w(LICENSE README.md CHANGELOG.md)
-  s.executables            = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  s.test_files             = s.files.grep(%r{^(test|spec|features)/})
-  s.require_paths          = ['lib']
-  s.cert_chain             = ['certs/sensu-plugins.pem']
-  s.signing_key            = File.expand_path(pvt_key) if $PROGRAM_NAME =~ /gem\z/
-  s.platform               = Gem::Platform::RUBY
-  s.required_ruby_version  = '>= 1.9.3'
+    s.authors                = ['Yieldbot, Inc. and contributors']
+    s.cert_chain             = ['certs/sensu-plugins.pem']
+    s.date                   = Date.today.to_s
+    s.description            = ''
+    s.email                  = '<sensu-users@googlegroups.com>'
+    s.executables            = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
+    s.files                  = Dir.glob('{bin,lib}/**/*') + %w(LICENSE README.md CHANGELOG.md)
+    s.homepage               = 'https://github.com/sensu-plugins/sensu-plugins-beanstalk'
+    s.license                = 'MIT'
+    s.metadata               = { 'maintainer'         => '',
+                                 'development_status' => 'unmaintained',
+                                 'production_status'  => 'unstable - testing reccomended'
+                                 }
+    s.name                   = 'sensu-plugins-sensu-plugins-beanstalk'
+    s.platform               = Gem::Platform::RUBY
+    s.require_paths          = ['lib']
+    s.required_ruby_version  = '>= 1.9.3'
+    s.signing_key            = File.expand_path(pvt_key) if $PROGRAM_NAME =~ /gem\z/
+    s.summary                = ''
+    s.test_files             = s.files.grep(%r{^(test|spec|features)/})
+    s.version                = SensuPluginsBluepill::VERSION
 
-  s.add_runtime_dependency 'json'
-  s.add_runtime_dependency 'beanstalk-client'
-  s.add_runtime_dependency 'beaneater'
+  s.add_runtime_dependency 'json', '~> 1.8.2'
+  s.add_runtime_dependency 'beanstalk-client', '~> 1.1.1'
+  s.add_runtime_dependency 'beaneater', '~> 0.3.3'
 
   s.add_development_dependency 'codeclimate-test-reporter', '~> 0.4.6'
   s.add_development_dependency 'rubocop', '~> 0.17.0'
