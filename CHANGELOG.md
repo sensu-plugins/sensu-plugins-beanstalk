@@ -8,3 +8,4 @@
 * fix repo so that rubocop passes
 * add new Vagrantfile
 * pin development dependencys
+* pin runtime dependencys
