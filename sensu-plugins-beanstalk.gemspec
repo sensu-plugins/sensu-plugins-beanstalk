@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.signing_key            = File.expand_path(pvt_key) if $PROGRAM_NAME =~ /gem\z/
   s.summary                = ''
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
-  s.version                = SensuPluginsBluepill::VERSION
+  s.version                = SensuPluginsBeanstalk::VERSION
 
   s.add_runtime_dependency 'json', '~> 1.8.2'
   s.add_runtime_dependency 'beanstalk-client', '~> 1.1.1'
