@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
                                'development_status' => 'unmaintained',
                                'production_status'  => 'unstable - testing reccomended'
                                }
-  s.name                   = 'sensu-plugins-sensu-plugins-beanstalk'
+  s.name                   = 'sensu-plugins-beanstalk'
   s.platform               = Gem::Platform::RUBY
   s.require_paths          = ['lib']
   s.required_ruby_version  = '>= 1.9.3'
@@ -34,10 +34,10 @@ Gem::Specification.new do |s|
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
   s.version                = SensuPluginsBeanstalk::VERSION
 
-  s.add_runtime_dependency 'json',             '~> 1.8.2'
+  s.add_runtime_dependency 'json',             '1.8.2'
   s.add_runtime_dependency 'sensu-plugin',     '1.1.0'
-  s.add_runtime_dependency 'beanstalk-client', '~> 1.1.1'
-  s.add_runtime_dependency 'beaneater',        '~> 0.3.3'
+  s.add_runtime_dependency 'beanstalk-client', '1.1.1'
+  s.add_runtime_dependency 'beaneater',        '0.3.3'
 
   s.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
   s.add_development_dependency 'rubocop',                   '0.17.0'
