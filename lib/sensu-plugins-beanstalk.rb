@@ -1,7 +1,14 @@
+require 'sensu-plugins-beanstalk/version'
+
+# Load the defaults
+
 #
-# Set gem version
+# Default class
 #
-module SensuPluginsBeanstalk
-  # Gem version
-  VERSION = '0.0.1.alpha.2'
+module SensuPluginsBeamstalk
+  class << self
+  end
+
+  class << self
+  end
 end

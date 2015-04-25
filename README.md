@@ -5,54 +5,23 @@
 [![Code Climate](https://codeclimate.com/github/sensu-plugins/sensu-plugins-beanstalk/badges/gpa.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-beanstalk)
 [![Test Coverage](https://codeclimate.com/github/sensu-plugins/sensu-plugins-beanstalk/badges/coverage.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-beanstalk)
 [![Dependency Status](https://gemnasium.com/sensu-plugins/sensu-plugins-beanstalk.svg)](https://gemnasium.com/sensu-plugins/sensu-plugins-beanstalk)
+[ ![Codeship Status for sensu-plugins/sensu-plugins-beanstalk](https://codeship.com/projects/9c376990-cd22-0132-003a-2698d59c4ad3/status?branch=master)](https://codeship.com/projects/76226)
 
 ## Functionality
 
 ## Files
 
- * bin/metrics-beanstalkd
- * bin/check-beanstalk-jobs
- * bin/check-beanstalk-watchers
- * bin/check-beanstalk-watchers-to-buried
- * bin/check-beanstalkd
+ * bin/metrics-beanstalkd.rb
+ * bin/check-beanstalk-jobs.rb
+ * bin/check-beanstalk-watchers.rb
+ * bin/check-beanstalk-watchers-to-buried.rb
+ * bin/check-beanstalkd.rb
 
 ## Usage
 
 ## Installation
 
-Add the public key (if you haven’t already) as a trusted certificate
+[Installation and Setup](https://github.com/sensu-plugins/documentation/blob/master/user_docs/installation_instructions.md)
 
-```
-gem cert --add <(curl -Ls https://raw.githubusercontent.com/sensu-plugins/sensu-plugins.github.io/master/certs/sensu-plugins.pem)
-gem install sensu-plugins-beanstalk -P MediumSecurity
-```
-
-You can also download the key from /certs/ within each repository.
-
-#### Rubygems
-
-`gem install sensu-plugins-beanstalk`
-
-#### Bundler
-
-Add *sensu-plugins-beanstalk* to your Gemfile and run `bundle install` or `bundle update`
-
-#### Chef
-
-Using the Sensu **sensu_gem** LWRP
-```
-sensu_gem 'sensu-plugins-beanstalk' do
-  options('--prerelease')
-  version '0.0.1'
-end
-```
-
-Using the Chef **gem_package** resource
-```
-gem_package 'sensu-plugins-beanstalk' do
-  options('--prerelease')
-  version '0.0.1'
-end
-```
 
 ## Notes
