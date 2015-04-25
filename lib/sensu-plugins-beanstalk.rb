@@ -5,7 +5,7 @@ require 'sensu-plugins-beanstalk/version'
 #
 # Default class
 #
-module SensuPluginsBeamstalk
+module SensuPluginsBeanstalk
   class << self
   end
 
