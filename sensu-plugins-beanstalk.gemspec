@@ -23,7 +23,8 @@ Gem::Specification.new do |s|
   s.license                = 'MIT'
   s.metadata               = { 'maintainer'         => '',
                                'development_status' => 'active',
-                               'production_status'  => 'unstable - testing reccomended', 'releae_draft'       => 'false',
+                               'production_status'  => 'unstable - testing reccomended',
+                               'release_draft'      => 'false',
                                'release_prerelease' => 'false'
                                }
   s.name                   = 'sensu-plugins-beanstalk'
