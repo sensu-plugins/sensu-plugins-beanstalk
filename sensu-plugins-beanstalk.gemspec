@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.license                = 'MIT'
   s.metadata               = { 'maintainer'         => '',
                                'development_status' => 'active',
-                               'production_status'  => 'unstable - testing reccomended',
+                               'production_status'  => 'unstable - testing recommended',
                                'release_draft'      => 'false',
                                'release_prerelease' => 'false'
                                }
@@ -37,7 +37,6 @@ Gem::Specification.new do |s|
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
   s.version                = SensuPluginsBeanstalk::Version::VER_STRING
 
-  s.add_runtime_dependency 'json',             '1.8.2'
   s.add_runtime_dependency 'sensu-plugin',     '1.1.0'
   s.add_runtime_dependency 'beanstalk-client', '1.1.1'
   s.add_runtime_dependency 'beaneater',        '0.3.3'
