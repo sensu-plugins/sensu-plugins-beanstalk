@@ -13,7 +13,6 @@
 #
 # DEPENDENCIES:
 #   gem: beaneater
-#   gem: json
 #   gem: sensu-plugin
 #
 # USAGE:

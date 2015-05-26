@@ -12,7 +12,7 @@
 #   Linux
 #
 # DEPENDENCIES:
-#   gem: beanstalk
+#   gem: beanstalk-client
 #   gem: sensu-plugin
 #
 # USAGE:
