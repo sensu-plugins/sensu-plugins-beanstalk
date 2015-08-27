@@ -84,7 +84,7 @@ class BeanstalkdQueuesStatus < Sensu::Plugin::Check::CLI
     conn
   end
 
-  def run # rubocop:disable all
+  def run
     stats = acquire_beanstalkd_connection.tubes["#{config[:tube]}"].stats
     message 'All queues are healthy'
 
@@ -103,7 +103,7 @@ class BeanstalkdQueuesStatus < Sensu::Plugin::Check::CLI
     ok
   end
 
-  def check_queues(stats) # rubocop:disable all
+  def check_queues(stats)
     msg = []
     crits = {}
     warns = {}

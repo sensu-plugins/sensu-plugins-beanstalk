@@ -58,7 +58,7 @@ class CheckBeanstalkWorkers < Sensu::Plugin::Check::CLI
          proc: proc(&:to_i),
          default: 0
 
-  def run # rubocop:disable all
+  def run
     begin
       beanstalk = Beanstalk::Connection.new(
         "#{config[:host]}:#{config[:port]}"

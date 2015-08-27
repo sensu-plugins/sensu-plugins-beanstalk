@@ -50,7 +50,7 @@ class CheckBeanstalkWatchers < Sensu::Plugin::Check::CLI
          proc: proc(&:to_i),
          default: false
 
-  def run # rubocop:disable all
+  def run
     unknown 'Tube was not set' unless config[:tube]
     begin
       beanstalk = Beanstalk::Connection.new(
@@ -66,8 +66,7 @@ class CheckBeanstalkWatchers < Sensu::Plugin::Check::CLI
     rescue Beanstalk::NotFoundError
       warning "Tube #{config[:tube]} not found"
     end
-    # #YELLOW
-    unless watchers # rubocop:disable IfUnlessModifier
+    unless watchers
       watchers = 0
     end
     if config[:crit] && watchers < config[:crit]
