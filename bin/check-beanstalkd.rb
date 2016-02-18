@@ -85,18 +85,18 @@ class BeanstalkdQueuesStatus < Sensu::Plugin::Check::CLI
   end
 
   def run
-    stats = acquire_beanstalkd_connection.tubes["#{config[:tube]}"].stats
+    stats = acquire_beanstalkd_connection.tubes[config[:tube].to_s].stats
     message 'All queues are healthy'
 
     warns, crits, msg = check_queues(stats)
     msg.join("\n")
 
-    if crits.size > 0
+    if crits.size > 0 # rubocop:disable Style/ZeroLengthPredicate
       message msg
       critical
     end
 
-    if warns.size > 0
+    if warns.size > 0 # rubocop:disable Style/ZeroLengthPredicate
       message msg
       warning
     end
