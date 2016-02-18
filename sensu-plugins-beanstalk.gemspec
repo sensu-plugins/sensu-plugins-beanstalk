@@ -37,7 +37,7 @@ Gem::Specification.new do |s|
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
   s.version                = SensuPluginsBeanstalk::Version::VER_STRING
 
-  s.add_runtime_dependency 'sensu-plugin',     '~ 1.2'
+  s.add_runtime_dependency 'sensu-plugin',     '~> 1.2'
   s.add_runtime_dependency 'beanstalk-client', '1.1.1'
   s.add_runtime_dependency 'beaneater',        '0.3.3'
 
