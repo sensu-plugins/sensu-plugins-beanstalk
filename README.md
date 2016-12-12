@@ -11,6 +11,7 @@
 ## Files
 
  * bin/metrics-beanstalkd.rb
+ * bin/metrics-beanstalkd-tube.rb
  * bin/check-beanstalk-jobs.rb
  * bin/check-beanstalk-watchers.rb
  * bin/check-beanstalk-watchers-to-buried.rb
