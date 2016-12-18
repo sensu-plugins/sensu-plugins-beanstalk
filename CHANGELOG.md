@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## Unreleased
+### Added
+- metrics-beanstalkd-tubes, get metrics from individual tubes
 
 ## [0.0.4] - 2016-02-18
 ### Fixed 
