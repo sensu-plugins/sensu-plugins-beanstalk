@@ -7,6 +7,9 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Added
 - metrics-beanstalkd-tubes, get metrics from individual tubes
 
+### Breaking Changes
+- Remove support for Ruby 1.9.3
+
 ## [0.0.4] - 2016-02-18
 ### Fixed 
 - cert issue
