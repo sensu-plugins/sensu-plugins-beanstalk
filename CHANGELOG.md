@@ -6,6 +6,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ## Unreleased
 ### Added
 - metrics-beanstalkd-tubes, get metrics from individual tubes
+- Add testing for Ruby 2.3.0
+- Add testing for Ruby 2.4.1
 
 ### Breaking Changes
 - Remove support for Ruby 1.9.3
