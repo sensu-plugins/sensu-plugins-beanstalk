@@ -74,12 +74,12 @@ class BeanstalkdMetrics < Sensu::Plugin::Metric::CLI::Graphite
   INGORED_KEYS = ['name'].freeze
 
   def tube_age(tube)
-      job = tube.peek(:ready)
-      if !job.nil?
-        job.stats.age
-      else
-        0
-      end
+    job = tube.peek(:ready)
+    if !job.nil?
+      job.stats.age
+    else
+      0
+    end
   end
 
   def output_stats(tube)
@@ -89,8 +89,8 @@ class BeanstalkdMetrics < Sensu::Plugin::Metric::CLI::Graphite
       next if INGORED_KEYS.include?(key)
       output "#{config[:scheme]}.#{tube.name}.#{key}", stats[key]
     end
-    unless !matches_filter?(:stats, "age")
-        output "#{config[:scheme]}.#{tube.name}.age", tube_age(tube)
+    if matches_filter?(:stats, 'age')
+      output "#{config[:scheme]}.#{tube.name}.age", tube_age(tube)
     end
   end
 
