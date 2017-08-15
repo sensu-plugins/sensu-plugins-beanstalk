@@ -6,6 +6,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ## [Unreleased]
 ### Added
 - Option to get the age of a item in the tubes. add age to the --stats
+  See https://gist.github.com/derkgort/d05fba4368aed01c7908ee26366d7dda for change in effect
 
 ## [1.0.0] - 2017-07-14
 ### Added
