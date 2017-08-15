@@ -89,9 +89,7 @@ class BeanstalkdMetrics < Sensu::Plugin::Metric::CLI::Graphite
       next if INGORED_KEYS.include?(key)
       output "#{config[:scheme]}.#{tube.name}.#{key}", stats[key]
     end
-    if matches_filter?(:stats, 'age')
-      output "#{config[:scheme]}.#{tube.name}.age", tube_age(tube)
-    end
+    output "#{config[:scheme]}.#{tube.name}.age", tube_age(tube) if matches_filter?(:stats, 'age')
   end
 
   def tubes
