@@ -4,9 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+
+## [1.1.0] - 2017-08-15
 ### Added
-- Option to get the age of a item in the tubes. add age to the --stats
-  See https://gist.github.com/derkgort/d05fba4368aed01c7908ee26366d7dda for change in effect
+- Option to get the age of a item in the tubes. add age to the --stats (@derkgort)
 
 ## [1.0.0] - 2017-07-14
 ### Added
@@ -36,7 +37,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-beanstalk/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-beanstalk/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/sensu-plugins/sensu-plugins-beanstalk/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-beanstalk/compare/0.0.4...1.0.0
 [0.0.4]: https://github.com/sensu-plugins/sensu-plugins-beanstalk/compare/0.0.3...0.0.4
 [0.0.3]: https://github.com/sensu-plugins/sensu-plugins-beanstalk/compare/0.0.2...0.0.3
