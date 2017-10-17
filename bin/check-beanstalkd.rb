@@ -89,7 +89,6 @@ class BeanstalkdQueuesStatus < Sensu::Plugin::Check::CLI
     message 'All queues are healthy'
 
     warns, crits, msg = check_queues(stats)
-    msg.join("\n")
 
     if crits.size > 0 # rubocop:disable Style/ZeroLengthPredicate
       message msg
