@@ -85,7 +85,8 @@ class BeanstalkdQueuesStatus < Sensu::Plugin::Check::CLI
   end
 
   def run
-    stats = acquire_beanstalkd_connection.tubes[config[:tube].to_s].stats
+    stats = tube_stats
+
     message 'All queues are healthy'
 
     warns, crits, msg = check_queues(stats)
@@ -102,26 +103,44 @@ class BeanstalkdQueuesStatus < Sensu::Plugin::Check::CLI
     ok
   end
 
+  JOB_STATES = [:ready, :urgent, :buried].freeze
+
   def check_queues(stats)
     msg = []
     crits = {}
     warns = {}
 
-    [:ready, :urgent, :buried].each do |task|
-      tasks = stats.send("current_jobs_#{task}".to_sym)
+    JOB_STATES.each do |job_state|
+      jobs = stats.send("current_jobs_#{job_state}".to_sym)
 
-      if tasks > config[task][1]
-        crits[task] = tasks
-        msg << task.to_s + " queue has #{tasks} items"
+      if jobs > config[job_state][1]
+        crits[job_state] = jobs
+        msg << job_state.to_s + " queue has #{jobs} items"
         next
       end
 
-      if tasks > config[task][0]
-        warns[task] = tasks
-        msg << task.to_s + " queue has #{tasks} items"
+      if jobs > config[job_state][0]
+        warns[job_state] = jobs
+        msg << job_state.to_s + " queue has #{jobs} items"
       end
     end
 
     [warns, crits, msg]
+  end
+
+  def tube_stats
+    acquire_beanstalkd_connection.tubes[config[:tube].to_s].stats
+  rescue Beaneater::NotFoundError
+    empty_queue_stats
+  end
+
+  def empty_queue_stats
+    stats = OpenStruct.new
+
+    JOB_STATES.each do |job_state|
+      stats.send("current_jobs_#{job_state}=", 0)
+    end
+
+    stats
   end
 end
