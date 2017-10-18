@@ -20,12 +20,11 @@ export LANGUAGE="en_US:en"
 export LC_ALL="en_US.UTF-8"
 
 # Install beanstalkd
-apt-get install -y beanstalkd
+apt-get install -y beanstalkd build-essential
 
 # Start beanstalkd
-beanstalkd -l 0.0.0 -p 11300 &
+service beanstalkd start
 
 cd $DATA_DIR
 SIGN_GEM=false gem build sensu-plugins-beanstalk.gemspec
 gem install sensu-plugins-beanstalk-*.gem
-gem install beaneater

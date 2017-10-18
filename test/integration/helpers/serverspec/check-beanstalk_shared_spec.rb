@@ -16,17 +16,17 @@ describe command("#{check} -s i.do.not.exist.local") do
   its(:stdout) { should match(/beanstalkd queues check WARNING: could not connect to beanstalkd/) }
 end
 
-context 'stuff exists' do
+context 'when server contains tube with jobs' do
   before do
     # Connect to pool
     beaneater = Beaneater::Pool.new('127.0.0.1:11300')
     # Enqueue jobs to tube
-    tube = beaneater.tubes["test-tube"]
+    tube = beaneater.tubes['test-tube']
     tube.clear
     tube.put('{ "data" : "data" }')
   end
   describe command("#{check} -s 127.0.0.1 -p 11300 -t test-tube") do
     its(:exit_status) { should eq 0 }
-    its(:stdout) { should match(/beanstalkd queues check WARNING: could not connect to beanstalkd/) }
+    its(:stdout) { should match(/beanstalkd queues check OK: All queues are healthy/) }
   end
 end
