@@ -1,4 +1,5 @@
-require_relative '../bin/check-beanstalkd'
+require_relative '../spec_helper'
+require_relative '../../bin/check-beanstalkd'
 
 describe BeanstalkdQueuesStatus do
   let(:beaneater_mock) { instance_double(Beaneater::Pool) }

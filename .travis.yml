@@ -17,6 +17,7 @@ notifications:
     on_failure: always
 script:
 - bundle exec rake default
+- bundle exec rake kitchen:ruby-`echo $TRAVIS_RUBY_VERSION | sed -e "s/\.//g"`-debian-8
 deploy:
   provider: rubygems
   api_key:
