@@ -13,6 +13,8 @@
 *.a
 mkmf.log
 .vagrant/*
+.kitchen/
+.kitchen.list.yml
 .DS_Store
 .idea/*
 *.gem
