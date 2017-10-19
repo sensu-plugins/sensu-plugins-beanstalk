@@ -41,5 +41,8 @@ task :check_binstubs do
 end
 
 Kitchen::RakeTasks.new
+desc 'Alias for kitchen:all'
+task integration: 'kitchen:all'
 
-task quick: [:spec, :make_bin_executable, :yard, :rubocop, :check_binstubs]
+task quick: %i(spec make_bin_executable yard rubocop check_binstubs)
+task default: %i(quick integration)
