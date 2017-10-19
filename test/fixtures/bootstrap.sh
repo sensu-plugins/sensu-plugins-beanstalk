@@ -1,7 +1,6 @@
 #!/bin/bash
 #
-# Set up a super simple web server and make it accept GET and POST requests
-# for Sensu plugin testing.
+# Set up a beanstalkd instance for Sensu plugin testing.
 #
 
 set -e
@@ -25,6 +24,7 @@ apt-get install -y beanstalkd build-essential
 # Start beanstalkd
 service beanstalkd start
 
+# Build and install GEM to test
 cd $DATA_DIR
-SIGN_GEM=false gem build sensu-plugins-beanstalk.gemspec
+gem build sensu-plugins-beanstalk.gemspec
 gem install sensu-plugins-beanstalk-*.gem

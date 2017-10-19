@@ -42,4 +42,4 @@ end
 
 Kitchen::RakeTasks.new
 
-task default: [:spec, :make_bin_executable, :yard, :rubocop, :check_binstubs]
+task quick: [:spec, :make_bin_executable, :yard, :rubocop, :check_binstubs]
