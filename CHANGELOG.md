@@ -5,6 +5,9 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 
+### Added
+- real tests with serverspec (@anakinj)
+
 ## [1.1.0] - 2017-08-15
 ### Added
 - Option to get the age of a item in the tubes. add age to the --stats (@derkgort)
