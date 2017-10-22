@@ -5,9 +5,10 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 
+## [1.2.0] - 2017-10-22
 ### Added
 - real tests with serverspec (@anakinj)
-- check-beanstalkd, ignore missing queues by default. Behaviour controlled by --alert-on-missing parameter. (@anakinj)
+- check-beanstalkd, ignore missing queues by default. Behavior controlled by --alert-on-missing parameter. (@anakinj)
 
 ## [1.1.0] - 2017-08-15
 ### Added
@@ -42,6 +43,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 - initial release
 
 [Unreleased]: https://github.com/sensu-plugins/sensu-plugins-beanstalk/compare/1.1.0...HEAD
+[1.2.0]: https://github.com/sensu-plugins/sensu-plugins-beanstalk/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/sensu-plugins/sensu-plugins-beanstalk/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-beanstalk/compare/0.0.4...1.0.0
 [0.0.4]: https://github.com/sensu-plugins/sensu-plugins-beanstalk/compare/0.0.3...0.0.4
