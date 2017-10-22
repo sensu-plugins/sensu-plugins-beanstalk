@@ -7,6 +7,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ### Added
 - real tests with serverspec (@anakinj)
+- check-beanstalkd, ignore missing queues by default. Behaviour controlled by --alert-on-missing parameter. (@anakinj)
 
 ## [1.1.0] - 2017-08-15
 ### Added

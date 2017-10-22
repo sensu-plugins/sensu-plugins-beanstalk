@@ -26,9 +26,9 @@ describe BeanstalkdQueuesStatus do
   it 'calls warning when no beanstalk connection can be opened' do
     check_instance = described_class.new
     expect(Beaneater::Pool).to receive(:new).and_raise('Random error')
-    expect(check_instance).to receive(:warning).and_raise('FAIL')
+    expect(check_instance).to receive(:warning).and_raise('ABORT')
 
-    expect { check_instance.run }.to raise_error 'FAIL'
+    expect { check_instance.run }.to raise_error 'ABORT'
   end
 
   it 'is ok if connection can be established and tube stats are under thresholds' do
@@ -73,5 +73,21 @@ describe BeanstalkdQueuesStatus do
 
     # This is probably a bug, How do we want to present the messages?
     expect(check_instance.instance_variable_get(:@message)).to eq(['urgent queue has 11 items'])
+  end
+
+  it 'is ok if the tube is missing' do
+    mock_beanstalkd
+    expect(tubes_mock).to receive(:[]).and_raise(Beaneater::NotFoundError.new('Tube not found', 'cmd'))
+    check_instance = described_class.new
+    expect(check_instance).to receive(:ok)
+    check_instance.run
+  end
+
+  it 'can alert if tube is missing' do
+    mock_beanstalkd
+    expect(tubes_mock).to receive(:[]).and_raise(Beaneater::NotFoundError.new('Tube not found', 'cmd'))
+    check_instance = described_class.new(['-a', 'warning'])
+    expect(check_instance).to receive(:warning).and_raise('ABORT')
+    expect { check_instance.run }.to raise_error 'ABORT'
   end
 end

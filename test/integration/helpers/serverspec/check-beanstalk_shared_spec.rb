@@ -29,4 +29,12 @@ context 'when server contains tube with jobs' do
     its(:exit_status) { should eq 0 }
     its(:stdout) { should match(/beanstalkd queues check OK: All queues are healthy/) }
   end
+  describe command("#{check} -s 127.0.0.1 -p 11300 -t missing-tube -a warning") do
+    its(:exit_status) { should eq 1 }
+    its(:stdout) { should match(/Tube missing-tube is missing/) }
+  end
+  describe command("#{check} -s 127.0.0.1 -p 11300 -t missing-tube --alert-on-missing critical") do
+    its(:exit_status) { should eq 2 }
+    its(:stdout) { should match(/Tube missing-tube is missing/) }
+  end
 end
