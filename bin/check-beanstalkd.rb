@@ -54,6 +54,14 @@ class BeanstalkdQueuesStatus < Sensu::Plugin::Check::CLI
          long:        '--port PORT',
          default:     '11300'
 
+  option :alert_on_missing,
+         description: 'alert type when tube is missing',
+         short:       '-a TYPE',
+         long:        '--alert-on-missing TYPE',
+         proc:        proc { |value| value.to_sym },
+         in:          [:critical, :warning, :ignore],
+         default:     :ignore
+
   option :ready,
          description: 'ready tasks WARNING/CRITICAL thresholds',
          short:       '-r W,C',
@@ -85,21 +93,19 @@ class BeanstalkdQueuesStatus < Sensu::Plugin::Check::CLI
   end
 
   def run
-    stats = tube_stats
-
+    warns, crits, msg = check_queues(tube_stats)
     message 'All queues are healthy'
 
-    warns, crits, msg = check_queues(stats)
-
-    if crits.size > 0 # rubocop:disable Style/ZeroLengthPredicate
+    unless crits.empty?
       message msg
       critical
     end
 
-    if warns.size > 0 # rubocop:disable Style/ZeroLengthPredicate
+    unless warns.empty?
       message msg
       warning
     end
+
     ok
   end
 
@@ -131,7 +137,12 @@ class BeanstalkdQueuesStatus < Sensu::Plugin::Check::CLI
   def tube_stats
     acquire_beanstalkd_connection.tubes[config[:tube].to_s].stats
   rescue Beaneater::NotFoundError
-    empty_queue_stats
+    case config[:alert_on_missing]
+    when :warning, :critical
+      send(config[:alert_on_missing], "Tube #{config[:tube]} is missing")
+    else
+      empty_queue_stats
+    end
   end
 
   def empty_queue_stats
