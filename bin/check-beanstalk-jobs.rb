@@ -63,7 +63,7 @@ class CheckBeanstalkWorkers < Sensu::Plugin::Check::CLI
       beanstalk = Beanstalk::Connection.new(
         "#{config[:host]}:#{config[:port]}"
       )
-    rescue => e
+    rescue StandardError => e
       critical "Failed to connect: (#{e})"
     end
 
