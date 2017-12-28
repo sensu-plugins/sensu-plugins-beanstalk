@@ -106,7 +106,7 @@ class BeanstalkdMetrics < Sensu::Plugin::Metric::CLI::Graphite
 
   def connection
     @conn ||= Beaneater::Pool.new(["#{config[:host]}:#{config[:port]}"])
-  rescue => e
+  rescue StandardError => e
     warning "could not connect to beanstalkd: #{e}"
   end
 end

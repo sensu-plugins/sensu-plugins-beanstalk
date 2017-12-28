@@ -56,7 +56,7 @@ class CheckBeanstalkWatchers < Sensu::Plugin::Check::CLI
       beanstalk = Beanstalk::Connection.new(
         "#{config[:host]}:#{config[:port]}"
       )
-    rescue => e
+    rescue StandardError => e
       critical "Failed to connect: (#{e})"
     end
 
@@ -66,9 +66,7 @@ class CheckBeanstalkWatchers < Sensu::Plugin::Check::CLI
     rescue Beanstalk::NotFoundError
       warning "Tube #{config[:tube]} not found"
     end
-    unless watchers
-      watchers = 0
-    end
+    watchers ||= 0
     if config[:crit] && watchers < config[:crit]
       critical "Required at least #{config[:crit]} watchers but have #{watchers}"
     elsif config[:warn] && watchers < config[:warn]

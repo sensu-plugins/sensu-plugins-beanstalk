@@ -59,7 +59,7 @@ class BeanstalkdQueuesStatus < Sensu::Plugin::Check::CLI
          short:       '-a TYPE',
          long:        '--alert-on-missing TYPE',
          proc:        proc { |value| value.to_sym },
-         in:          [:critical, :warning, :ignore],
+         in:          %i[critical warning ignore],
          default:     :ignore
 
   option :ready,
@@ -86,7 +86,7 @@ class BeanstalkdQueuesStatus < Sensu::Plugin::Check::CLI
   def acquire_beanstalkd_connection
     begin
       conn = Beaneater::Pool.new(["#{config[:server]}:#{config[:port]}"])
-    rescue
+    rescue StandardError
       warning 'could not connect to beanstalkd'
     end
     conn
@@ -109,7 +109,7 @@ class BeanstalkdQueuesStatus < Sensu::Plugin::Check::CLI
     ok
   end
 
-  JOB_STATES = [:ready, :urgent, :buried].freeze
+  JOB_STATES = %i[ready urgent buried].freeze
 
   def check_queues(stats)
     msg = []

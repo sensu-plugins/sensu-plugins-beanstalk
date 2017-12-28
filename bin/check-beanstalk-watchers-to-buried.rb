@@ -56,7 +56,7 @@ class CheckBeanstalkWatchersToBuried < Sensu::Plugin::Check::CLI
       beanstalk = Beanstalk::Connection.new(
         "#{config[:host]}:#{config[:port]}"
       )
-    rescue => e
+    rescue StandardError => e
       critical "Failed to connect: (#{e})"
     end
 
@@ -68,9 +68,7 @@ class CheckBeanstalkWatchersToBuried < Sensu::Plugin::Check::CLI
       warning "Tube #{config[:tube]} not found"
     end
     # #YELLOW
-    unless watchers
-      watchers = 0
-    end
+    watchers ||= 0
 
     if config[:crit] || (buried - watchers) > config[:crit]
       critical "Exceeded buried jobs by threshold of #{config[:crit]} (#{watchers}/#{buried})"
