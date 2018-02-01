@@ -5,6 +5,7 @@ This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins
 
 ## [Unreleased]
 
+## [2.0.1] - 2012-02-01
 ### Fixed
 - fixed install issue with development dependencies with `test-kitchen` being unsatisfied with `1.17.0` as it requires ruby 2.3 or later (@majormoses)
 
@@ -59,6 +60,7 @@ This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins
 - initial release
 
 [Unreleased]: https://github.com/sensu-plugins/sensu-plugins-beanstalk/compare/2.0.0...HEAD
+[2.0.1]: https://github.com/sensu-plugins/sensu-plugins-beanstalk/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/sensu-plugins/sensu-plugins-beanstalk/compare/1.1.0...2.0.0
 [1.2.0]: https://github.com/sensu-plugins/sensu-plugins-beanstalk/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/sensu-plugins/sensu-plugins-beanstalk/compare/1.0.0...1.1.0
