@@ -42,12 +42,15 @@ Gem::Specification.new do |s| # rubocop:disable Metrics/BlockLength
   s.add_development_dependency 'github-markup',             '~> 1.3'
   s.add_development_dependency 'kitchen-docker',            '~> 2.6'
   s.add_development_dependency 'kitchen-localhost',         '~> 0.3'
+  # locked to keep ruby 2.1 support, this is pulled in by test-kitchen
+  s.add_development_dependency 'mixlib-shellout',           ['< 2.3.0', '~> 2.2']
   s.add_development_dependency 'pry',                       '~> 0.10'
   s.add_development_dependency 'rake',                      '~> 10.5'
   s.add_development_dependency 'redcarpet',                 '~> 3.2'
   s.add_development_dependency 'rspec',                     '~> 3.4'
   s.add_development_dependency 'rubocop',                   '~> 0.51.0'
   s.add_development_dependency 'serverspec',                '~> 2.36.1'
-  s.add_development_dependency 'test-kitchen',              '~> 1.6'
+  # intentionally locked as 1.17 requires ruby 2.3+
+  s.add_development_dependency 'test-kitchen',              '~> 1.16.0'
   s.add_development_dependency 'yard',                      '~> 0.8'
 end
