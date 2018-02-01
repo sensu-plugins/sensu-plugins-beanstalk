@@ -5,6 +5,9 @@ This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins
 
 ## [Unreleased]
 
+### Fixed
+- fixed install issue with development dependencies with `test-kitchen` being unsatisfied with `1.17.0` as it requires ruby 2.3 or later (@majormoses)
+
 ## [2.0.0] - 2018-01-31
 ### Security
 - updated rubocop dependency to `~> 0.51.0` per: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8418. (@majormoses)
