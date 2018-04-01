@@ -5,6 +5,9 @@ This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins
 
 ## [Unreleased]
 
+### Breaking Changes
+- bumped dependency of `sensu-plugin` to 2.x you can read about it  [here](https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#v145---2017-03-07) (@majormoses)
+
 ## [2.0.1] - 2012-02-01
 ### Fixed
 - fixed install issue with development dependencies with `test-kitchen` being unsatisfied with `1.17.0` as it requires ruby 2.3 or later (@majormoses)
