@@ -34,7 +34,7 @@ Gem::Specification.new do |s| # rubocop:disable Metrics/BlockLength
 
   s.add_runtime_dependency 'sensu-plugin',     '~> 2.4'
 
-  s.add_runtime_dependency 'beaneater',        '0.3.3'
+  s.add_runtime_dependency 'beaneater',        '= 1.0.0'
   s.add_runtime_dependency 'beanstalk-client', '1.1.1'
 
   s.add_development_dependency 'bundler',                   '~> 1.7'
